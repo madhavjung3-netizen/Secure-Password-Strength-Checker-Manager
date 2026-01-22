@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="section-title">
+        <div>
+            <div class="section-kicker">Strength lab</div>
+            <h2>Password strength analyzer</h2>
+            <p class="text-muted mb-0">Run a fast check to understand risk and crack time.</p>
+        </div>
+    </div>
+    <div class="form-card mb-5">
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Password to test</label>
+                <input type="text" name="password" class="form-control" placeholder="Enter password to test...">
+            </div>
+            <button type="submit" class="btn btn-brand w-100">Analyze</button>
+        </form>
+    </div>
+
+    {% if result %}
+    <div class="result-card">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <h4 class="mb-0">Results</h4>
+            <span class="badge text-bg-dark">Score: {{ result.score }}/4</span>
+        </div>
+        <div class="progress mt-3">
+            <div class="progress-bar bg-{{ 'danger' if result.score < 2 else 'warning' if result.score < 4 else 'success' }}" 
+                 style="width: {{ (result.score/4)*100 }}%"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <p><strong>Time to crack:</strong> {{ result.crack_time }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Breach status:</strong> <span class="text-danger">{{ pwned_status }}</span></p>
+            </div>
+        </div>
+        
+        {% if result.feedback %}
+            <div class="alert alert-secondary mt-4">
+                <strong>Suggestions:</strong>
+                <ul class="mb-0">
+                    {% for suggestion in result.feedback %}
+                        <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

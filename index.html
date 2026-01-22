@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container hero">
+    <div>
+        <div class="hero-eyebrow">Control your credentials</div>
+        <h1 class="hero-title">A focused password manager for teams that care about certainty.</h1>
+        <p class="hero-subtitle">
+            SecurePass keeps your access clean with strong password scoring, breach awareness,
+            and 2FA onboarding in one calm workspace.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="{{ url_for('main.register') }}" class="btn btn-brand btn-lg">Create your vault</a>
+            <a href="{{ url_for('main.login') }}" class="btn btn-ghost btn-lg">I already have access</a>
+        </div>
+        <p class="text-muted mt-3">No credit card. Setup takes less than 2 minutes.</p>
+    </div>
+    <div class="hero-panel">
+        <h3>Security snapshot</h3>
+        <p class="mb-4 text-white-50">Live intelligence for every credential you store.</p>
+        <ul>
+            <li><span>01</span>Strength scoring with crack-time estimates.</li>
+            <li><span>02</span>Instant breach checks against known leaks.</li>
+            <li><span>03</span>2FA-first sign in with QR onboarding.</li>
+            <li><span>04</span>Minimal UI that keeps focus on safety.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="container mt-5">
+    <div class="section-title">
+        <div>
+            <div class="section-kicker">Built for clarity</div>
+            <h2>Know what is strong, fix what is weak, move fast.</h2>
+        </div>
+        <a href="{{ url_for('main.checker') }}" class="btn btn-accent">Run a quick check</a>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>Password intelligence</h4>
+            <p>Score every password, highlight crack time, and spot weak points instantly.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Breach visibility</h4>
+            <p>Detect if a credential shows up in leaks and respond before damage spreads.</p>
+        </div>
+        <div class="feature-card">
+            <h4>2FA-ready access</h4>
+            <p>Guide users through secure onboarding with QR setup in minutes.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Focused workflows</h4>
+            <p>Cut the noise with a calm layout that keeps security decisions obvious.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container strip">
+    <div>
+        <h3>92%</h3>
+        <p class="mb-0 text-white-50">of weak passwords fixed after review</p>
+    </div>
+    <div>
+        <h3>24/7</h3>
+        <p class="mb-0 text-white-50">breach monitoring built in</p>
+    </div>
+    <div>
+        <h3>3 steps</h3>
+        <p class="mb-0 text-white-50">from setup to secure login</p>
+    </div>
+    <div>
+        <h3>Instant</h3>
+        <p class="mb-0 text-white-50">security feedback for users</p>
+    </div>
+</section>
+
+<section class="container mt-5">
+    <div class="section-title">
+        <div>
+            <div class="section-kicker">How it works</div>
+            <h2>Launch a secure workspace in a few calm steps.</h2>
+        </div>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>1. Register your vault</h4>
+            <p>Create your account and set a baseline for secure storage.</p>
+        </div>
+        <div class="feature-card">
+            <h4>2. Enable 2FA</h4>
+            <p>Scan the QR code and confirm your device in seconds.</p>
+        </div>
+        <div class="feature-card">
+            <h4>3. Review strength</h4>
+            <p>Analyze passwords and fix any weak or exposed entries.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container mt-5">
+    <div class="cta-card">
+        <div>
+            <div class="section-kicker">Ready for lift-off</div>
+            <h2>Start protecting accounts with a smarter password flow.</h2>
+            <p class="text-muted mb-0">SecurePass is built to stay simple while raising security standards.</p>
+        </div>
+        <a href="{{ url_for('main.register') }}" class="btn btn-brand btn-lg">Get started now</a>
+    </div>
+</section>
+{% endblock %}

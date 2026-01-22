@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="section-title">
+        <div>
+            <div class="section-kicker">Your workspace</div>
+            <h1>Welcome, {{ user.username }}</h1>
+            <p class="text-muted mb-0">Role: {{ user.role }} | Status: Securely logged in</p>
+        </div>
+        <a href="{{ url_for('main.checker') }}" class="btn btn-accent btn-lg">Run strength check</a>
+    </div>
+    <div class="dashboard-grid">
+        <div class="feature-card">
+            <h4>Quick audit</h4>
+            <p>Review recent password strength scores and spot weak entries fast.</p>
+            <a href="{{ url_for('main.checker') }}" class="btn btn-brand">Analyze passwords</a>
+        </div>
+        <div class="feature-card">
+            <h4>2FA status</h4>
+            <p>Ensure multi-factor authentication stays enabled for every login.</p>
+            <a href="{{ url_for('main.setup_2fa', user_id=user.id) }}" class="btn btn-ghost">Review 2FA</a>
+        </div>
+        <div class="feature-card">
+            <h4>Security pulse</h4>
+            <p>Monitor breach exposure and take action the moment a risk appears.</p>
+            <a href="{{ url_for('main.checker') }}" class="btn btn-ghost">Check exposure</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
